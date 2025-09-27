@@ -1,29 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MarkMe</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    body { font-family: Arial; text-align: center; margin-top: 20px; }
-    .grid { display: flex; flex-wrap: wrap; justify-content: center; max-width: 600px; margin: auto; }
-    .roll-btn {
-      width: 60px; height: 60px; margin: 5px;
-      background-color: #eee; border: 1px solid #ccc;
-      font-size: 18px; cursor: pointer;
-    }
-    .present { background-color: lightgreen; }
-    .inputs { margin-bottom: 20px; }
-    .inputs label { margin: 0 10px; }
-  </style>
 </head>
 <body>
   <h2>Attendance System</h2>
 
   <!-- Editable Lecture Info -->
   <div class="inputs">
-    <label>Date: <input type="date" id="attDate" value="2025-09-27"></label>
-    <label>Subject: <input type="text" id="attSubject" placeholder="Enter subject"></label>
-    <label>Time: <input type="text" id="attTime" placeholder="e.g. 10:00 AM - 11:00 AM"></label>
+    <label><input type="date" id="attDate" value="2025-09-27"></label>
+    <label><input type="text" id="attSubject" placeholder="Enter subject"></label>
+    <label><input type="text" id="attTime" placeholder="e.g. 10:00 AM - 11:00 AM"></label>
   </div>
 
   <!-- Roll Number Grid -->
