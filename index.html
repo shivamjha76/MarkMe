@@ -16,16 +16,45 @@
   <!-------------------Lecture Info ------------------------------->
   <div class="inputs">
     <label><input type="date" id="attDate"></label>
-    <label><input type="text" id="attSubject" placeholder="Enter subject"></label>
+    <label>
+  <select id="attSubject">
+    <option value="">Select Subject</option>
+    <option value="Mathematics">Mathematics</option>
+    <option value="Chemistry">Chemistry</option>
+    <option value="Mechanical">Mechanical</option>
+    <option value="English">English</option>
+    <option value="Communication">Communication Skills</option>
+    <option value="Design">Design thinking</option>
+  </select>
+</label>
     <label><input type="text" id="attTime" placeholder="e.g. 10:00 AM - 11:00 AM"></label>
   </div>
 
   <!----------------------------- Roll Number Grid --------------------------->
   <div class="grid" id="rollGrid"></div>
+  <p id="countDisplay" style="font-weight: bold; margin-top: 10px;"></p>
 
   <!------------------------- Export Buttons ------------------------------->
   <button onclick="exportCSV()">Export CSV</button>
   <button onclick="exportPDF()">Export PDF</button>
+
+<!------------------ a conformanation pop up  ---------------------->
+  <div id="toast" style="
+  visibility: hidden;
+  min-width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 10px;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+  </div>
 
   <script>
     // ---------------------- Format Date Function ---------------------------//
@@ -37,35 +66,40 @@
 
     // --------------------------- Student Data ----------------------------------//
     const studentData = [
-      { roll: 1, name: "Krish Kumar", branch: "CSE"},
-      { roll: 2, name: "Nitin Patel", branch: "CSE"},
-      { roll: 3, name: "Sagar kumar", branch: "CSE"},
-      { roll: 4, name: "Vivek kumar", branch: "CSE"},
-      { roll: 5, name: "Raju Kumar", branch: "CSE"},
-      { roll: 6, name: "Priyanshu Kumar", branch: "CSE"},
-      { roll: 7, name: "Golu Kumar", branch: "CSE"},
-      { roll: 9, name: "Shivsankar Kumar", branch: "CSE"},
-      { roll: 12, name: "Ganesh Kumar", branch: "CSE"},
-      { roll: 13, name: "Pratham Prasoon", branch: "CSE"},
-      { roll: 14, name: "Md Azhar Alam", branch: "CSE"},
-      { roll: 15, name: "Kundan Kumar", branch: "CSE"},
-      { roll: 18, name: "Yash Raj", branch: "CSE"},
-      { roll: 16, name: "Niraj Kumar", branch: "ME"},
-      { roll: 19, name: "Deepak Kumar", branch: "CSE"},
-      { roll: 20, name: "Shivam Kumar", branch: "CSE"},
-      { roll: 21, name: "Shivam Kumar", branch: "CE"},
-      { roll: 22, name: "Rustum Kumar", branch: "CSE"},
-      { roll: 23, name: "Masuam Ali", branch: "ME"},
-      { roll: 12, name: "Nitesh Kumar", branch: "CSE"},
-      { roll: 27, name: "Tajir Mansuri", branch: "ME"},
-      { roll: 29, name: "Shubham Kumar Rai", branch: "CSE"},
-      { roll: 30, name: "Durgesh Kumar", branch: "CSE"},
-      { roll: 31, name: "Shashi Ranjan Kumar", branch: "ME"},
-      { roll: 32, name: "Deepak kumar", branch: "CSE"},
-      { roll: 33, name: "Shubham kumar rajak", branch: "CSE"},
-      { roll: 34, name: "Md Arbaz", branch: "CSE"},
-      { roll: 54, name: "Aditya kumar", branch: "ME"},
+      {roll: 1, name: "Krish Kumar", branch: "CSE"},
+      {roll: 2, name: "Nitin Patel", branch: "CSE"},
+      {roll: 3, name: "Sagar kumar", branch: "CSE"},
+      {roll: 4, name: "Vivek kumar", branch: "CSE"},
+      {roll: 5, name: "Raju Kumar", branch: "CSE"},
+      {roll: 6, name: "Priyanshu Raj Chauhan", branch: "CSE"},
+      {roll: 7, name: "Golu Kumar", branch: "CSE"},
+      {roll: 8, name: "Shri Ram Kumar", branch: "CSE"},
+      {roll: 9, name: "Shivsankar Kumar", branch: "CSE"},
+      {roll: 10, name: "Abhiram kumar", branch: "CSE"},
+      {roll: 11, name: "Nitesh kumar", branch: "CSE"},
+      {roll: 12, name: "Ganesh Kumar", branch: "CSE"},
+      {roll: 13, name: "Pratham Prasoon", branch: "CSE"},
+      {roll: 14, name: "Md Azhar Alam", branch: "CSE"},
+      {roll: 15, name: "Kundan Kumar", branch: "CSE"},
+      {roll: 16, name: "Niraj Kumar", branch: "CSE"},
+      {roll: 17, name: "Aditya Aryan", branch: "ME"},
+      {roll: 18, name: "Yash Raj", branch: "CSE"},
+      {roll: 19, name: "Deepak Kumar", branch: "CSE"},
+      {roll: 20, name: "Shivam Kumar", branch: "CSE"},
+      {roll: 21, name: "Shivam Kumar", branch: "CE"},
+      {roll: 22, name: "Rustum Kumar", branch: "CSE"},
+      {roll: 23, name: "Masum Ali", branch: "ME"},
+      {roll: 24, name: "Aadarshini Shrivastava", branch: "CSE"},
+      {roll: 27, name: "Tajir Mansuri", branch: "ME"},
+      {roll: 29, name: "Shubham Kumar Rai", branch: "CSE"},
+      {roll: 30, name: "Durgesh Kumar", branch: "CSE"},
+      {roll: 31, name: "Shashi Ranjan Kumar", branch: "ME"},
+      {roll: 32, name: "Deepak kumar", branch: "CSE"},
+      {roll: 33, name: "Shubham kumar rajak", branch: "CSE"},
+      {roll: 34, name: "Md Arbaz", branch: "CSE"},
+      {roll: 54, name: "Aditya kumar", branch: "ME"},
     ];
+
 
     const totalStudents = 65;
     const attendance = [];
@@ -83,6 +117,7 @@
         } else {
           attendance.push(i);
         }
+        updateCount();
       };
       grid.appendChild(btn);
     }
@@ -111,6 +146,7 @@
       link.href = URL.createObjectURL(blob);
       link.download = `attendance_${rawDate}.csv`;
       link.click();
+      showToast("✅ CSV exported successfully");
     }
 
     // ------------------------- Export PDF ----------------------------- //
@@ -122,6 +158,7 @@
       const date = formatDate(rawDate);
       const subject = document.getElementById("attSubject").value || "N/A";
       const time = document.getElementById("attTime").value || "N/A";
+      showToast("✅ PDF exported successfully");
 
       // ----------------------- Title ------------------------------ //
       doc.setFontSize(14);
@@ -132,6 +169,7 @@
       doc.text(`Date     : ${date}`, 20, 30);
       doc.text(`Subject  : ${subject}`, 20, 36);
       doc.text(`Time     : ${time}`, 20, 42);
+      doc.text(`Present  : ${attendance.length} out of ${totalStudents}`, 20, 48);
  
       // ------------------------ Table Rows --------------------------- //
       const rows = attendance.sort((a, b) => a - b).map(num => {
@@ -160,6 +198,20 @@
       // Save PDF
       doc.save(`attendance_${rawDate}.pdf`);
     }
+// ------------------------------- update total no. of present student --------------------------//
+    function updateCount() {
+  document.getElementById("countDisplay").innerText = `Present: ${attendance.length}`;
+  window.addEventListener("load", updateCount);
+}
+// ------------------ script for conformantion pop up ---------------------- //
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.innerText = message;
+  toast.style.visibility = "visible";
+  setTimeout(() => {
+    toast.style.visibility = "hidden";
+  }, 3000);
+}
   </script>
 </body>
 </html>

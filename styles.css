@@ -32,6 +32,17 @@ h2 {
   padding-right: 35px;
 }
 
+#attSubject {
+  outline: none;
+  font-size: 13px;
+  color: grey;
+  padding: 8px;
+  margin-right: -13px;
+  box-sizing: border-box;
+  border: 0.1px solid rgb(172, 172, 172);
+  border-radius: 5px;
+}
+
 .inputs label {
   display: flex;
   flex-direction: column;
@@ -129,6 +140,7 @@ button:hover {
     margin: 8px 0;
     padding: 10px 0;
     font-size: 13px;
+    
   }
   h2 {
     font-size: 18px;
