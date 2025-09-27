@@ -3,6 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MarkMe</title>
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="styles.css">
   <!----------------jsPDF + autoTable plugin -------------------------------->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -11,11 +12,14 @@
 
 
 <body>
+  <div class="head">
+  <img src="logo_jagan.png" alt="logo" class="logo">
   <h2>Attendance System</h2>
+  </div>
 
   <!-------------------Lecture Info ------------------------------->
   <div class="inputs">
-    <label><input type="date" id="attDate"></label>
+    <label><input type="date" id="attDate" value="25/09/2025" placeholder="date"></label>
     <label>
       <select id="attSubject">
         <option value="">Select Subject</option>

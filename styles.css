@@ -7,7 +7,24 @@ body {
   text-align: center;
 }
 
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  position: absolute;
+  height: 40px;
+  margin-top: 0px;
+  margin-left: 270px;
+  padding: 0;
+  /* background-color: white; */
+  border-radius: 50%;
+}
+
 h2 {
+  margin-top: 5px;
   margin-bottom: 10px;
   font-weight: 600;
   color: #F5FAE1;

@@ -93,12 +93,12 @@
     async function exportPDF() {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
-
       const rawDate = document.getElementById("attDate").value;
       const date = formatDate(rawDate);
       const subject = document.getElementById("attSubject").value || "N/A";
-      const time = document.getElementById("attTime").value || "N/A";
+      const time = document.getElementById("attTime").value || "N/A";;
       showToast("✅ PDF exported successfully");
+
 
       // ----------------------- Title ------------------------------ //
       doc.setFontSize(14);
