@@ -122,6 +122,13 @@ button:hover {
   background-color: #2980b9;
 }
 
+#generateFullListPDF {
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  padding: 10px;
+}
+
 #countDisplay {
   font-weight: bold; 
   margin-top: 10px;
