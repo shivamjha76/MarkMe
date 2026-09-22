@@ -177,6 +177,7 @@
   window.addEventListener("load", updateCount);
 }
 
+
 // ------------------------- Export Full Attendance PDF with P/A ----------------------------- //
 async function exportFullPDF() {
   const { jsPDF } = window.jspdf;
