@@ -78,6 +78,7 @@
     const attendance = [];
     const grid = document.getElementById("rollGrid");
 
+
     // ------------------ Create Roll Number Buttons ------------------------- //
     for (let i = 1; i <= totalStudents; i++) {
       const btn = document.createElement("button");
